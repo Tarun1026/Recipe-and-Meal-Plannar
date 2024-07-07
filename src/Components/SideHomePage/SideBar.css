@@ -1,0 +1,98 @@
+.sideBarDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh; /* Full height of the viewport */
+  
+    /* padding: 2rem; */
+}
+
+.heading {
+    color: red;
+    font-size: 2rem;
+    margin-top: 4rem;
+    margin-left: 3rem;
+}
+
+.space {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.sideList {
+    margin-left: 3rem;
+    list-style: none;
+    padding: 0;
+}
+
+.list {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.list button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    font-weight: 300; /* Adjusted for a lighter font weight */
+    color: #666;
+    cursor: pointer;
+}
+
+.list button:hover {
+    color: rgb(1, 0, 0);
+}
+
+.list button:focus {
+    color: rgb(12, 0, 0);
+}
+
+.list button svg {
+    margin-right: 0.5rem; /* Adjust spacing between icon and text */
+}
+
+.sideBottomDiv {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 2rem;
+    background-color: #ff9130;
+    width:80%;
+    margin: 1.5rem auto; 
+    padding: 1rem;
+    padding-top: 4rem;
+    padding-left:1rem;
+    border-radius: 20px;
+    font-size:1.2rem;
+    font-weight: 100;
+    color: white;
+    
+}
+
+.btnUpload {
+    width:80%;
+    height:3rem;
+    background-color: white;
+    border: none;
+    border-radius: 25px;
+    color: #e65c00;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btnUpload:hover {
+    background-color: rgb(238, 208, 197);
+}
+
+/* .btnUpload:focus {
+    outline: none;
+    background-color: #e65c00;
+} */

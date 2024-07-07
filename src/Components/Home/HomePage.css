@@ -1,0 +1,25 @@
+body, html {
+    margin: 0;
+  }
+  
+  .divs {
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .firstDiv {
+    width: 20%;
+    height: 100vh;
+  }
+  
+  .middleDiv {
+    width: 55%;
+    background-color: rgb(249, 245, 245);
+  }
+  
+  .lastDiv {
+    width: 25%;
+    padding-left: 2rem;
+    padding-top: 1rem;
+  }
+  

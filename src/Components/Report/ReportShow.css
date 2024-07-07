@@ -1,0 +1,219 @@
+.main {
+    padding-top: 1rem;
+  }
+  
+  .icon {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .reportWeek {
+    display: flex;
+    padding-top: 1rem;
+  }
+  
+  .report {
+    font-size: 2rem;
+  }
+  
+  .week {
+    margin-top: 0.7rem;
+    margin-left: 10px;
+    font-size: 1.2rem;
+    color: rgb(145, 144, 144);
+  }
+  
+  .date {
+    margin-top: 1rem;
+    margin-left: 3px;
+  }
+  
+  .circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .dropdown {
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+      rgb(218, 92, 92) 0% 25%,
+      rgb(223, 223, 116) 25% 35%,
+      rgb(114, 209, 114) 35% 75%,
+      rgb(101, 101, 189) 75% 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin-right: 2rem;
+  }
+  
+  .circle::before {
+    content: '';
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+  }
+  
+  .circle-text {
+    position: absolute;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 1;
+  }
+  
+  .foodData {
+    margin-top: 2rem;
+    margin-left: 3rem;
+  }
+  
+  .foodDataDiv1, .foodDataDiv2 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .foodDataDiv2 {
+    margin-top: 1rem;
+  }
+  
+  .box1, .box2, .box4 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .box2 {
+    margin-left: 7rem;
+  }
+  
+  .box4 {
+    margin-left: 8.3rem;
+  }
+  
+  .padding {
+    margin-left: 5px;
+  }
+  
+  .b1, .b2, .b3, .b4 {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    border-radius: 2px;
+    margin-bottom: 22px;
+    
+  }
+  
+  .b1 {
+    background-color: rgb(227, 120, 120);
+  }
+  
+  .b2 {
+    background-color: rgb(129, 120, 227);
+  }
+  
+  .b3 {
+    background-color: rgb(73, 229, 79);
+  }
+  
+  .b4 {
+    background-color: rgb(223, 223, 116);
+  }
+  
+  .foodDetails {
+    margin-top: 5px;
+    color: rgb(145, 144, 144);
+  }
+  
+  .moreRecipe {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .recipeBox, .recipeBox2 {
+    align-items: center;
+    background-color: rgb(249, 229, 193);
+    padding: 10px;
+    width: 35.5%;
+    height: 30vh;
+    border-radius: 20px;
+  }
+  
+  .recipeBox2 {
+    margin-left: 1rem;
+  }
+  
+  .headingMoreRecipe {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .heading1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .viewMore {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: red;
+    cursor: pointer;
+    margin-right: 3rem;
+  }
+  
+  .arrowIcon {
+    margin-left: 0.5rem;
+  }
+  
+  .r {
+    display: flex;
+    width: 80%;
+  }
+  
+  .recipeImage {
+    width: 90%;
+    height: 50%;
+    margin-right: 100px;
+    border-radius: 50%;
+  }
+  
+  .recipeDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .recipeTitle {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .recipeDescription {
+    font-size: 1rem;
+    color: rgb(145, 144, 144);
+    margin-top: 10px;
+  }
+  

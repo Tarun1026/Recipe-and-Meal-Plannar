@@ -1,0 +1,60 @@
+.searchDiv {
+    padding-left: 3rem;
+    padding-top: 4rem;
+    /* background-color: blue; */
+}
+
+.searchBar {
+    width: 73%;
+    height: 2.5rem;
+    border-radius: 25px;
+    padding-left: 20px;
+}
+
+.filter {
+    width: 17%;
+    height: 2.7rem;
+    border-radius: 25px;
+    margin-left: 1rem;
+    padding-left: 20px;
+    border: 1.5px solid black;
+}
+
+.shareRecipeDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff9130;
+    width: 80%;
+    height: 9%;
+    border-radius: 15px;
+    margin: 2rem auto; 
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.textContainer {
+    flex: 1;
+}
+
+.add {
+    margin-top: -0.5px;
+    font-size: 2rem;
+}
+
+.upload {
+    margin-top: -1rem;
+    font-size: 1rem;
+    color: #f7e3e3;
+}
+
+.img {
+    height: 8.7rem; /* Adjust the height as needed */
+    width: auto;
+    border-radius: 15px;
+    /* margin-left: 5rem; */
+}
