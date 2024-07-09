@@ -1,0 +1,35 @@
+/* Styles for nutrition chart */
+.nutritionChart {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.nutritionDetails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.nutritionItem {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nutritionName {
+    font-weight: bold;
+}
+
+.nutritionAmount {
+    font-weight: normal;
+}
+
+.highlighted {
+    font-weight: bold;
+    color: #e13a15; /* Highlight color */
+}

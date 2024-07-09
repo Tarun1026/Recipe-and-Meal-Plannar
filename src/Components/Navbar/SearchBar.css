@@ -1,7 +1,6 @@
 .searchDiv {
     padding-left: 3rem;
-    padding-top: 4rem;
-    /* background-color: blue; */
+    padding-top: 2rem;
 }
 
 .searchBar {
@@ -32,7 +31,6 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-left: 2rem;
-
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -56,5 +54,116 @@
     height: 8.25rem; 
     width: auto;
     border-radius: 15px;
-    /* margin-left: 5rem; */
+}
+
+.imgAndName {
+    display: flex;
+    margin-top: -1rem;
+    align-items: center; 
+}
+.recipeHeading{
+    margin-top:-1rem;
+    margin-left:5rem;
+    width:80%;
+    display: flex;
+    justify-content: space-between;
+}
+.recipes{
+    font-size:1.5rem;
+}
+
+.viewMore {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: red;
+    cursor: pointer;
+    margin-right: 0rem;
+  }
+.recipeDiv {
+    margin-top: 1rem;;
+    margin-left: 5rem;
+    width: 80%;
+    height:55%;
+    display: flex;
+    gap: 1rem;
+}
+
+.recipeCard {
+    position: relative; 
+    width: calc(50% - 2rem);
+    background-color: white;
+    border-radius: 25px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+.recipeImg {
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem;
+    border-radius: 50%;
+}
+
+.recipeName {
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.ingredients {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 1rem;
+}
+
+.ingredient {
+    flex: 1 1 calc(33.333% - 1rem); 
+    align-items: center;
+}
+
+.ingredientName{
+    font-size: 0.9rem;
+}
+.ingredientsDetail {
+    margin-left: 1.5rem;
+    margin-top: -1rem;
+}
+.ingredientsHeading{
+    display:flex;
+    justify-content: space-between;
+}
+.viewMoreIngredients{
+    margin-top:1.3rem;
+    color: red;
+}
+.ingredientImg {
+    width: 3rem;
+    height: 3rem;
+}
+
+.nutrientsDetail {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    padding-left: 1rem;
+}
+
+.nutrientButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #007bff; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.nutrientButton:hover {
+    text-decoration: underline;
 }
