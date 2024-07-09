@@ -11,9 +11,7 @@ const RecipeLink = () => {
         const fetchRecipesData = async () => {
             try {
                 const requests = recipeIds.map(id =>
-                    axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${
-            import.meta.env.VITE_SECRET_KEY
-          }`)
+                    axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=b176924bdeac4b91bbf27efeec163bcb`)
                 );
                 const responses = await Promise.all(requests);
                 const data = responses.map(response => response.data);
