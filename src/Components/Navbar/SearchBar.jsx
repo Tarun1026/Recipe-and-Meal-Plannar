@@ -1,13 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useLayoutEffect, useRef } from "react";
 import "./SearchBar.css";
 import { CiFilter } from "react-icons/ci";
 import RecipeLink from "../RecipesLink/RecipeLink";
 import { FaArrowRightLong, FaArrowLeft } from "react-icons/fa6"; 
 import { Link, useNavigate } from "react-router-dom"; 
+
+const SearchInput = ({ query, handleChange }) => {
+  // const inputRef = useRef(null);
+
+  // useLayoutEffect(() => {
+  //   inputRef.current.focus();
+  // }, [inputRef]);
+
+  return (
+    <input
+      // ref={inputRef}
+      type="text"
+      placeholder="Search your recipe"
+      className="searchBar"
+      value={query}
+      onChange={handleChange}
+    />
+  );
+};
+
 const SearchBar = () => {
-  const { recipes, error } = RecipeLink();
+  const [query, setQuery] = useState('');
+  const { recipes, error } = RecipeLink({ query });
   const navigate = useNavigate(); 
   const [startIndex, setStartIndex] = useState(0); 
+
+  const handleChange = useCallback(
+    (e) => {
+      const query = e.target.value;
+      setQuery(query);
+    },
+    []
+  );
 
   const navigateToDetail = (nutrients, steps) => {
     navigate("/details/nutrients", {
@@ -26,11 +55,7 @@ const SearchBar = () => {
   return (
     <>
       <div className="searchDiv">
-        <input
-          type="text"
-          placeholder="Search your recipe"
-          className="searchBar"
-        />
+        <SearchInput query={query} handleChange={handleChange} />
         <select className="filter">
           <option>
             <CiFilter className="filterIcon" /> Filter

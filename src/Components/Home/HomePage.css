@@ -15,6 +15,7 @@ body, html {
   .middleDiv {
     width: 55%;
     background-color: rgb(249, 245, 245);
+    height:100vh;
   }
   
   .lastDiv {

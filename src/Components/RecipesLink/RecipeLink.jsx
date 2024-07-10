@@ -1,27 +1,36 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const RecipeLink = () => {
+const RecipeLink = ({ query }) => {
     const [recipes, setRecipes] = useState([]);
     const [error, setError] = useState(null);
-
-    const recipeIds = [479041, 479042,479068,479046,479081];
 
     useEffect(() => {
         const fetchRecipesData = async () => {
             try {
+                let url = '';
+                let recipeIds = [];
+                if (query) {
+                    url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=3893e16be0794162926167deccfa31eb`;
+                    const response = await axios.get(url);
+                    recipeIds = response.data.results.map(recipe => recipe.id);
+                } else {
+                    recipeIds = [479041, 479042, 479068, 479046, 479081, 642583];
+                }
+
                 const requests = recipeIds.map(id =>
-                    axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=b176924bdeac4b91bbf27efeec163bcb`)
+                    axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=3893e16be0794162926167deccfa31eb`)
                 );
                 const responses = await Promise.all(requests);
                 const data = responses.map(response => response.data);
-                setRecipes(data); 
+                setRecipes(data);
             } catch (err) {
                 setError(err.message);
             }
         };
+
         fetchRecipesData();
-    }, []);
+    }, [query]);
 
     return { recipes, error };
 }
@@ -29,4 +38,3 @@ const RecipeLink = () => {
 export default RecipeLink;
 
 
-// 
