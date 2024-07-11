@@ -2,39 +2,39 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const RecipeLink = ({ query }) => {
-    const [recipes, setRecipes] = useState([]);
-    const [error, setError] = useState(null);
+  const [recipes, setRecipes] = useState([]);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchRecipesData = async () => {
-            try {
-                let url = '';
-                let recipeIds = [];
-                if (query) {
-                    url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=3893e16be0794162926167deccfa31eb`;
-                    const response = await axios.get(url);
-                    recipeIds = response.data.results.map(recipe => recipe.id);
-                } else {
-                    recipeIds = [479041, 479042, 479068, 479046, 479081, 642583];
-                }
+  useEffect(() => {
+    const fetchRecipesData = async () => {
+      try {
+        let url = "";
+        let recipeIds = [];
+        if (query) {
+          url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=7c4cab6aae3e4e278c611876650d7efd
+`;
+          const response = await axios.get(url);
+          recipeIds = response.data.results.map((recipe) => recipe.id);
+        } else {
+          recipeIds = [479041, 479042, 479068, 479046, 479081, 642583];
+        }
 
-                const requests = recipeIds.map(id =>
-                    axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=3893e16be0794162926167deccfa31eb`)
-                );
-                const responses = await Promise.all(requests);
-                const data = responses.map(response => response.data);
-                setRecipes(data);
-            } catch (err) {
-                setError(err.message);
-            }
-        };
+        const requests = recipeIds.map((id) =>
+          axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=7c4cab6aae3e4e278c611876650d7efd
+`)
+        );
+        const responses = await Promise.all(requests);
+        const data = responses.map((response) => response.data);
+        setRecipes(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
 
-        fetchRecipesData();
-    }, [query]);
+    fetchRecipesData();
+  }, [query]);
 
-    return { recipes, error };
-}
+  return { recipes, error };
+};
 
 export default RecipeLink;
-
-
