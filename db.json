@@ -1,0 +1,60 @@
+{
+  "mealCategories": [
+    {
+      "name": "main course",
+      "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fG1haW4lMjBjb3Vyc2V8ZW58MHx8fHwxNjI1OTUxMjc4&ixlib=rb-1.2.1&q=80&w=1080"
+    },
+    {
+      "name": "side dish",
+      "image": "https://plus.unsplash.com/premium_photo-1699837153439-7c1d55523c4e?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "dessert",
+      "image": "https://plus.unsplash.com/premium_photo-1675279010969-e85bfbd402dc?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "appetizer",
+      "image": "https://plus.unsplash.com/premium_photo-1661668648046-f2bc1091e4b8?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "salad",
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "bread",
+      "image": "https://images.unsplash.com/photo-1507638940746-7b17d6b55b8f?q=80&w=1789&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "breakfast",
+      "image": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "soup",
+      "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDN8fHNvdXB8ZW58MHx8fHwxNjI1OTUxNDI3&ixlib=rb-1.2.1&q=80&w=1080"
+    },
+    {
+      "name": "beverage",
+      "image": "https://plus.unsplash.com/premium_photo-1670469009826-db07ab733925?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "sauce",
+      "image": "https://images.unsplash.com/photo-1505577058444-a3dab90d4253?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDl8fHNhdWNlfGVufDB8fHx8MTYyNTk1MTQ1OQ&ixlib=rb-1.2.1&q=80&w=1080"
+    },
+    {
+      "name": "marinade",
+      "image": "https://images.unsplash.com/photo-1600180786489-2e9a5b4041b5?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "fingerfood",
+      "image": "https://plus.unsplash.com/premium_photo-1669261883169-29226ddaba7e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "snack",
+      "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fHNuYWNrfGVufDB8fHx8MTYyNTk1MTUwOQ&ixlib=rb-1.2.1&q=80&w=1080"
+    },
+    {
+      "name": "drink",
+      "image": "https://plus.unsplash.com/premium_photo-1675949335489-f778abf84197?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ]
+}

@@ -2,37 +2,36 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh; 
+    height: 100vh;
+  }
   
-    /* padding: 2rem; */
-}
-
-.heading {
+  .heading {
     color: red;
     font-size: 2rem;
     margin-top: 4rem;
     margin-left: 3rem;
-}
-
-.space {
+  }
+  
+  .space {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-between;
-}
-
-.sideList {
+  }
+  
+  .sideList {
     margin-left: 3rem;
     list-style: none;
     padding: 0;
-}
-
-.list {
+  }
+  
+  .list {
     margin-top: 2rem;
-    font-size: 1.5rem;
-}
-
-.list button {
+    font-size: 1.2rem;
+    /* font-weight: 100; */
+  }
+  
+  .linkButton {
     display: flex;
     align-items: center;
     background: none;
@@ -40,43 +39,44 @@
     padding: 0;
     font-size: 1.2rem;
     margin-top: 3rem;
-    font-weight: 300;
-    color: #666;
+    /* font-weight: 300; */
+    color: rgb(93, 91, 91);
     cursor: pointer;
-}
-
-.list button:hover {
-    color: rgb(1, 0, 0);
-}
-
-.list button:focus {
-    color: rgb(12, 0, 0);
-}
-
-.list button svg {
-    margin-right: 0.5rem; 
-}
-
-.sideBottomDiv {
+    text-decoration: none; 
+  }
+  
+  .linkButton:hover {
+    color: rgb(0, 0, 1);
+  }
+  
+  .linkButton:focus {
+    color: rgb(190, 21, 21);
+  }
+  
+  .linkButton svg {
+    margin-right: 0.5rem;
+  }
+  
+  .sideBottomDiv {
     text-align: center;
     margin-top: auto;
     margin-bottom: 2rem;
     background-color: #ff9130;
-    width:80%;
-    margin: 1.5rem auto; 
+    width: 80%;
+    margin: 1.5rem auto;
     padding: 1rem;
     padding-top: 4rem;
-    padding-left:1rem;
+    padding-left: 1rem;
     border-radius: 20px;
-    font-size:1.2rem;
+    font-size: 1.2rem;
     font-weight: 100;
     color: white;
-    
-}
-
-.btnUpload {
-    width:80%;
-    height:3rem;
+  }
+  
+  .btnUpload {
+    display: inline-block;
+    width: 80%;
+    height: 3rem;
     background-color: white;
     border: none;
     border-radius: 25px;
@@ -86,10 +86,12 @@
     font-size: 1rem;
     margin-top: 10px;
     transition: background-color 0.3s ease;
-}
-
-.btnUpload:hover {
+    text-align: center; /* Center text */
+    line-height: 3rem; /* Center text vertically */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .btnUpload:hover {
     background-color: rgb(238, 208, 197);
-}
-
-
+  }
+  

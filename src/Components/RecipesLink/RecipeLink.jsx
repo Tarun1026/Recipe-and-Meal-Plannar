@@ -11,7 +11,7 @@ const RecipeLink = ({ query }) => {
         let url = "";
         let recipeIds = [];
         if (query) {
-          url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=7c4cab6aae3e4e278c611876650d7efd
+          url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=838552739901431c81a42861f27be0b2
 `;
           const response = await axios.get(url);
           recipeIds = response.data.results.map((recipe) => recipe.id);
@@ -20,7 +20,7 @@ const RecipeLink = ({ query }) => {
         }
 
         const requests = recipeIds.map((id) =>
-          axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=7c4cab6aae3e4e278c611876650d7efd
+          axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=838552739901431c81a42861f27be0b2
 `)
         );
         const responses = await Promise.all(requests);

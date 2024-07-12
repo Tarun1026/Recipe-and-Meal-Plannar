@@ -39,11 +39,11 @@ const SearchBar = () => {
     <>
       <div className="searchDiv">
         <SearchInput query={query} handleChange={handleChange} />
-        <select className="filter">
+        {/* <select className="filter">
           <option>
             <CiFilter className="filterIcon" /> Filter
           </option>
-        </select>
+        </select> */}
       </div>
 
       {/* <div className="shareRecipeDiv">
@@ -61,7 +61,7 @@ const SearchBar = () => {
       </div> */}
 
       <div className="recipeHeading">
-        <div className="recipes">Recipes</div>
+        <div className="recipes">Popular Recipes</div>
       </div>
 
       {error && <div className="error">{error}</div>}

@@ -4,6 +4,8 @@ import { CiReceipt, CiHeart } from "react-icons/ci";
 import { MdNoMeals } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { BsGrid } from "react-icons/bs";
+import { Link } from "react-router-dom";
+
 const SideBar = () => {
   return (
     <>
@@ -12,42 +14,44 @@ const SideBar = () => {
         <div className="space">
           <ul className="sideList">
             <li className="list">
-              <button>
-                <BsGrid size={25} />
+              <Link to="/overview" className="linkButton">
+              
+                <BsGrid size={28} />
                 Overview
-              </button>
+              
+              </Link>
             </li>
             <li className="list">
-              <button>
-                <CiReceipt size={25} />
+              <Link to="/recipe" className="linkButton">
+                <CiReceipt size={28} />
                 Recipe
-              </button>
+              </Link>
             </li>
             <li className="list">
-              <button>
-                <CiHeart size={25} />
+              <Link to="/favourite" className="linkButton">
+                <CiHeart size={28} />
                 Favourite
-              </button>
+              </Link>
             </li>
             <li className="list">
-              <button>
-                <MdNoMeals size={25} />
+              <Link to="/meal" className="linkButton">
+                <MdNoMeals size={28} />
                 Your Meal
-              </button>
+              </Link>
             </li>
             <li className="list">
-              <button>
-                <IoSettingsOutline size={25} />
+              <Link to="/settings" className="linkButton">
+                <IoSettingsOutline size={28} />
                 Settings
-              </button>
+              </Link>
             </li>
           </ul>
-          <div className="sideBottomDiv">
+          {/* <div className="sideBottomDiv">
             <div className="text">Share Your own recipe with our community</div>
             <div className="btnDiv">
-              <button className="btnUpload">Upload Now</button>
+              <Link to="/upload" className="btnUpload">Upload Now</Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
