@@ -1,0 +1,37 @@
+
+body,html{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.recipeGrid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 5px;
+    margin-left:2.5rem;
+    
+    margin-top: 4rem;
+}
+
+.img{
+    border-radius: 20px;
+   
+    width:100%;
+    height:100%;
+}
+
+.recipeTitle{
+    font-size:1.4rem;
+    
+    align-items: flex-start;
+}
+.box{
+    width:17vw;
+    height:31vh;
+    border: none;
+    background-color: white;
+    transition: transform 0.3s ease;
+    text-align: start;
+}
+
+.box:hover{
+    transform: scale(1.07);
+}

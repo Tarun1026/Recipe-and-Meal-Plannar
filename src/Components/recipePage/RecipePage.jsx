@@ -1,8 +1,12 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Home/HomePage.css";
 import SideBar from "../SideHomePage/SideBar";
 import "./RecipePage.css";
 import useMealCategoriesLink from "../hook/useMealCategoriesLink";
+import { Link } from "react-router-dom";
+import useMealTypesLink from "../hook/useMealTypesLink";
+import MealsCategory from "./meals/MealsCategory";
 
 const SearchInput = ({ query, handleChange }) => {
   return (
@@ -18,12 +22,27 @@ const SearchInput = ({ query, handleChange }) => {
 
 const RecipePage = () => {
   const [query, setQuery] = useState("");
-  const { meal } = useMealCategoriesLink(); // Correct usage of useMealCategoriesLink
+  const [dynamicUrl, setDynamicUrl] = useState("");
+  const { meal } = useMealCategoriesLink();
+  const navigate = useNavigate();
 
   const handleChange = useCallback((e) => {
     const query = e.target.value;
     setQuery(query);
   }, []);
+
+  const handleClick = (item) => {
+    const newUrl = `https://api.spoonacular.com/recipes/complexSearch?type=${item.name}&number=5&apiKey=87db0a533f81463e979ef6766e426dfa
+`;
+    setDynamicUrl(newUrl);
+    navigate('/recipe/mealCategory', { state: { dynamicUrl: newUrl } });
+   
+
+  };
+
+  useEffect(() => {
+    console.log("dynamicUrl updated:", dynamicUrl);
+  }, [dynamicUrl]);
 
   return (
     <div className="divs">
@@ -40,10 +59,10 @@ const RecipePage = () => {
         <div className="category">
           {meal.map((item) => (
             <div key={item.name} className="fit">
-              <div>
-              <img src={item.image}  className="imgCategory"/>
-              <h3>{item.name}</h3>
-              </div>
+              <button onClick={() => handleClick(item)} className="recBtn">
+                <img src={item.image} className="imgCategory" alt={item.name} />
+                <h3  className="recipeName">{item.name}</h3>
+              </button>
             </div>
           ))}
         </div>

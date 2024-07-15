@@ -28,3 +28,18 @@
     /* border-top-left-radius: 10px;
     border-top-right-radius: 10px; */
 }
+
+.recBtn {
+    border: none;
+    background-color: rgb(249, 245, 245);
+    transition: transform 0.3s ease;
+}
+
+.recBtn:hover {
+    transform: scale(1.07); 
+}
+
+.recipeName {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
