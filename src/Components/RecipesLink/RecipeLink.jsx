@@ -11,16 +11,18 @@ const RecipeLink = ({ query }) => {
         let url = "";
         let recipeIds = [];
         if (query) {
-          url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=3893e16be0794162926167deccfa31eb
+          url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=b176924bdeac4b91bbf27efeec163bcb
+
 `;
           const response = await axios.get(url);
           recipeIds = response.data.results.map((recipe) => recipe.id);
         } else {
-          recipeIds = [479041, 479042, 479068, 479046, 479081, 642583];
+          recipeIds = [479182, 479042, 479068, 479046, 479081, 642583];
         }
 
         const requests = recipeIds.map((id) =>
-          axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=3893e16be0794162926167deccfa31eb
+          axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=b176924bdeac4b91bbf27efeec163bcb
+
 `)
         );
         const responses = await Promise.all(requests);

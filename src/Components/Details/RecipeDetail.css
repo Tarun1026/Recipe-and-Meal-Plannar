@@ -1,185 +1,191 @@
 body, html {
-    background-color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
+  background-color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.recipeDetail {
+  margin: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rightDiv {
+  margin-left: 4rem;
   
-  .recipeDetail {
-    margin: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .contentWrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .rightDiv {
-    margin-left: 4rem;
-  }
-  
-  .recipeHeader {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-  }
-  
-  .recipeTitle2 {
-    font-size: 4rem;
-    flex: 1;
-  }
-  
-  .recipeImg {
-    width: 25em;
-    height: 25rem;
-    border-radius: 15px;
-    margin-right: 2rem;
-  }
-  
-  .recipeInfo {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 2rem;
-  }
-  
-  .ingredientsMinutes {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .separator {
-    width: 2px;
-    height: 2rem;
-    background-color: #090101;
-    margin: 0 1rem;
-  }
-  
-  .ingredients, .minutes {
-    font-size: 1.5rem;
-  }
-  
-  .addToMeal {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-  }
-  
-  .ingredientsList {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    margin-left: 4rem;
-    width: 100%;
-  }
-  
-  .ingredient {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .ingredientsImg {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    margin-right: 1rem;
-  }
-  
-  .ingredientName {
-    font-size: 1.2rem;
-  }
-  
-  .nutritionCharts {
-    margin-top: 2rem;
-    margin-left: 2rem;
-    width: 100%;
-    background-color: white;
-    border-radius: 0%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  
-  .sliderContainer {
-    display: flex;
-    align-items: center;
-  }
-  
-  .arrowButton {
-    background-color: #f0f0f0;
-    border: none;
-    cursor: pointer;
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-  }
-  
-  .nutritionDetails {
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 1rem;
-  }
-  
-  .nutritionItem {
-    flex: 0 0 auto;
-    margin-right: 1rem;
-  }
-  
-  .nutritionCircle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #a29999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .nutritionName {
-    font-size: 1.0rem;
-  }
-  
-  .nutritionAmount {
-    font-size: 1rem;
-  }
-  
-  .highlighted .nutritionCircle {
-    background-color: #a18a2f;
-  }
-  
-  .detailContainer {
-    margin-top: 2rem;
-  }
-  
-  .instructions {
-    margin-top: 2rem;
-    background-color: white;
-    font-size: 1.5rem;
-  }
-  
-  .ingredientList {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .ingredientItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .ingredientImg {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    margin-right: 1rem;
-  }
-  
-  .ingredientName {
-    font-size: 1.2rem;
-  }
-  
+}
+
+.recipeHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.recipeTitle2 {
+  font-size: 4rem;
+  flex: 1;
+}
+
+.recipeImg {
+  width: 22em;
+  height: 22rem;
+  margin-top: 3rem;
+  border-radius: 15px;
+  margin-right: 2rem;
+}
+
+.recipeInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.ingredientsMinutes {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.separator {
+  width: 3px;
+  height: 2rem;
+  background-color: #090101;
+  margin: 0 1rem;
+}
+
+.ingredients, .minutes {
+  font-size: 1.5rem;
+}
+
+.addToMeal {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.ingredientsList {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4rem;
+  width: 100%;
+}
+
+.ingredient {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ingredientsImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.ingredientName {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.ingredientNameUp{
+  font-size: 1.3rem;
+}
+.nutritionCharts {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  width: 100%;
+  background-color: white;
+  border-radius: 0%;
+}
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+}
+
+.arrowButton {
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+.nutritionDetails {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 1rem;
+}
+
+.nutritionItem {
+  flex: 0 0 auto;
+  margin-right: 1rem;
+}
+
+.nutritionCircle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #a29999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.nutritionName {
+  font-size: 1.0rem;
+}
+
+.nutritionAmount {
+  font-size: 1rem;
+}
+
+.highlighted .nutritionCircle {
+  background-color: #a18a2f;
+}
+
+.detailContainer {
+  margin-top: 2rem;
+}
+
+.instructions {
+  margin-top: 2rem;
+  background-color: white;
+  font-size: 1.5rem;
+}
+
+.ingredientList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ingredientItem {
+  display: flex;
+  flex-direction: column; /* Ensure image is above the name */
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ingredientImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-bottom: 0.5rem; /* Add space between image and name */
+}
+
+.ingredientUseHeading {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}

@@ -1,181 +1,184 @@
 .searchDiv {
-    padding-left: 3rem;
-    padding-top: 2rem;
-  }
-  
-  .searchBar {
-    width: 73%;
-    height: 2.5rem;
-    border-radius: 25px;
-    padding-left: 20px;
-  }
-  
-  .filter {
-    width: 17%;
-    height: 2.7rem;
-    border-radius: 25px;
-    margin-left: 1rem;
-    padding-left: 20px;
-    border: 1.5px solid black;
-  }
-  
-  .shareRecipeDiv {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ff9130;
-    width: 80%;
-    height: 9%;
-    border-radius: 15px;
-    margin: 2rem auto; 
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 2rem;
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  
-  .textContainer {
-    flex: 1;
-  }
-  
-  .add {
-    margin-top: -0.5px;
-    font-size: 2rem;
-  }
-  
-  .upload {
-    margin-top: -1rem;
-    font-size: 1rem;
-    color: #f7e3e3;
-  }
-  
-  .img {
-    height: 8.25rem; 
-    width: auto;
-    border-radius: 15px;
-  }
-  
-  .imgAndName {
-    display: flex;
-    margin-top: -1rem;
-    align-items: center; 
-  }
-  
-  .recipeHeading {
-  
-    margin-top: -1rem;
-    margin-left: 3.5rem;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .recipes {
-    margin-top:3rem;
-    font-size: 1.5rem;
-  }
-  
-  .recipeContainer {
-    
-    height: 75vh; 
-    overflow-y: auto; 
-    margin-top: 1rem;
-    margin-left: 3rem;
-    width: 90%;
-  }
-  
-  .recipeDiv {
-    display: grid;
-    grid-template-columns:repeat(2,1fr);
-    /* flex-direction: column; */
-    /* gap: 1rem; */
-  }
-  
-  .recipeCard {
-    position: relative;
-    width: calc(90% - 1rem);
-    background-color: white;
-    border-radius: 25px;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    height:68vh;
-  }
-  
-  .recipeImg {
-    width: 3rem;
-    height: 3rem;
-    margin: 1rem;
-    border-radius: 50%;
-  }
-  
-  .recipeName {
-    font-size: 1rem;
-    font-weight: normal;
-    font-style: normal;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  
-  .ingredients {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .ingredient {
-    flex: 1 1 calc(33.333% - 1rem);
-    align-items: center;
-  }
-  
-  .ingredientName {
-    font-size: 0.9rem;
-  }
-  
-  .ingredientsDetail {
-    margin-left: 1.5rem;
-    margin-top: -1rem;
-  }
-  
-  .ingredientsHeading {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .viewMoreIngredients {
-    margin-top: 1.3rem;
-    color: red;
-  }
-  
-  .ingredientsImg {
-    width: 2.5rem;
-    border-radius: 50%;
-    border:1px solid rgb(9, 0, 0);
-    height: 2.5rem;
-  }
-  
-  .nutrientsDetail {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding-left: 1rem;
-  }
-  
-  .nutrientButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    color: #007bff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 0;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .nutrientButton:hover {
-    text-decoration: underline;
-  }
-  
+  padding-left: 3rem;
+  padding-top: 2rem;
+}
+
+.searchBar {
+  width: 73%;
+  height: 2.5rem;
+  border-radius: 25px;
+  padding-left: 20px;
+}
+
+.filter {
+  width: 17%;
+  height: 2.7rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  padding-left: 20px;
+  border: 1.5px solid black;
+}
+
+.shareRecipeDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff9130;
+  width: 80%;
+  height: 9%;
+  border-radius: 15px;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.textContainer {
+  flex: 1;
+}
+
+.add {
+  margin-top: -0.5px;
+  font-size: 2rem;
+}
+
+.upload {
+  margin-top: -1rem;
+  font-size: 1rem;
+  color: #f7e3e3;
+}
+
+.img {
+  height: 8.25rem;
+  border-radius: 15px;
+}
+
+.imgAndName {
+  margin-top: -1rem;
+  align-items: center;
+}
+
+.recipeHeading {
+  margin-top: -1rem;
+  margin-left: 3.5rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipes {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+}
+
+.recipeContainer {
+  height: 75vh;
+  overflow-y: auto;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: 90%;
+}
+
+.recipeDiv {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 1rem;
+}
+
+.recipeCard {
+  position: relative;
+  width: calc(90% - 1rem);
+  border-radius: 25px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.recImg {
+  width: 40%;
+}
+
+.recipeImgs {
+  width: 17rem;
+  height: 17rem;
+  margin: 1rem;
+  margin-bottom: 0%;
+  margin-top: 0%;
+  border-radius: 20px;
+}
+
+.recipeName {
+  text-align: start;
+  margin-left: 1rem;
+  margin-top: -5rem;
+  font-size: 1.3rem !important; /* Ensure font size is applied */
+  color: black;
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ingredient {
+  flex: 1 1 calc(33.333% - 1rem);
+  align-items: center;
+}
+
+/* .ingredientName {
+  font-size: 0.9rem;
+} */
+
+.ingredientsDetail {
+  margin-left: 1.5rem;
+  margin-top: -1rem;
+}
+
+.ingredientsHeading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.viewMoreIngredients {
+  margin-top: 1.3rem;
+  color: red;
+}
+
+.ingredientsImg {
+  width: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgb(9, 0, 0);
+  height: 2.5rem;
+}
+
+/* .nutrientsDetail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 1rem;
+} */
+
+.nutrientButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #007bff;
+  text-decoration: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 0;
+  margin-left: 0rem;
+  transition: transform 0.5s ease;
+}
+
+.nutrientButton:hover {
+  transform: scale(0.87);
+  text-decoration: none !important; /* Ensure no underline on hover */
+}

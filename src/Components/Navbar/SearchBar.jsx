@@ -29,9 +29,10 @@ const SearchBar = () => {
     []
   );
 
-  const navigateToDetail = (nutrients, steps) => {
-    navigate("/details/nutrients", {
-      state: { nutrients, steps },
+  const navigateToRecipeDetail = (title, image, extendedIngredients, readyInMinutes,nutrients, steps) => {
+    console.log("Navigating to RecipeDetail with:", { title, image, extendedIngredients, readyInMinutes });
+    navigate("/recipeDetails", {
+      state: { title, image, extendedIngredients, readyInMinutes,nutrients, steps },
     });
   };
 
@@ -70,20 +71,36 @@ const SearchBar = () => {
         <div className="recipeDiv">
           {recipes &&
             recipes.map((item) => (
+              <button
+              className="nutrientButton"
+              onClick={() =>
+                navigateToRecipeDetail(
+                  item.title,
+                  item.image,
+                  item.extendedIngredients,
+                  item.readyInMinutes,
+                  item.nutrition && item.nutrition.nutrients,
+                  item.analyzedInstructions &&
+                    item.analyzedInstructions[0]?.steps
+                )
+              }
+            >
               <div key={item.id} className="recipeCard">
                 <div className="imgAndName">
-                  <div>
+               
+                  <div className="recImg">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="recipeImg"
+                      className="recipeImgs"
                     />
                   </div>
-                  <div>
+                  <div className="name">
                     <h2 className="recipeName">{item.title}</h2>
                   </div>
+                  
                 </div>
-                <div className="ingredientsDetail">
+                {/* <div className="ingredientsDetail">
                   <h3>Ingredients</h3>
                   <div className="ingredients">
                     {item.extendedIngredients &&
@@ -100,22 +117,14 @@ const SearchBar = () => {
                           </div>
                         ))}
                   </div>
-                </div>
-                <div className="nutrientsDetail">
-                  <button
-                    className="nutrientButton"
-                    onClick={() =>
-                      navigateToDetail(
-                        item.nutrition && item.nutrition.nutrients,
-                        item.analyzedInstructions &&
-                          item.analyzedInstructions[0]?.steps
-                      )
-                    }
-                  >
+                </div> */}
+                {/* <div className="nutrientsDetail">
+               
                     Recipe Details
-                  </button>
-                </div>
+                  
+                </div> */}
               </div>
+              </button>
             ))}
         </div>
       </div>

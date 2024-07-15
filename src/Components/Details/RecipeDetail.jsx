@@ -8,13 +8,12 @@ const RecipeDetail = () => {
     location.state || {};
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsToShow, setItemsToShow] = useState(4); // Number of items to show at a time
+  const [itemsToShow, setItemsToShow] = useState(4);
 
   useEffect(() => {
     const updateItemsToShow = () => {
-      // Calculate how many items can fit in the container
       const containerWidth = document.querySelector(".nutritionDetails").offsetWidth;
-      const itemWidth = 120; // Adjust based on your item width and margin
+      const itemWidth = 120;
       const newItemsToShow = Math.floor(containerWidth / itemWidth);
       setItemsToShow(newItemsToShow);
     };
@@ -33,14 +32,6 @@ const RecipeDetail = () => {
       Math.min(prevIndex + itemsToShow, nutrients.length - itemsToShow)
     );
   };
-
-  console.log("RecipeDetail received:", {
-    title,
-    image,
-    extendedIngredients,
-    readyInMinutes,
-    steps,
-  });
 
   return (
     extendedIngredients && (
@@ -78,7 +69,7 @@ const RecipeDetail = () => {
                 alt={ingredient.name}
                 className="ingredientsImg"
               />
-              <p className="ingredientName">{ingredient.original}</p>
+              <p className="ingredientNameUp">{ingredient.original}</p>
             </div>
           ))}
         </div>
@@ -117,9 +108,9 @@ const RecipeDetail = () => {
                 {steps.map((stepNo, index) => (
                   <li key={index}>
                     {stepNo.step}
-                    {stepNo.ingredients && (
+                    {stepNo.ingredients && stepNo.ingredients.length > 0 && (
                       <div>
-                        <h3>Ingredient Use</h3>
+                        <h3 className="ingredientUseHeading">Ingredient Use</h3>
                         <ul className="ingredientList">
                           {stepNo.ingredients.map((item, idx) => (
                             <li key={idx} className="ingredientItem">
