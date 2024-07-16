@@ -6,22 +6,26 @@ import Detail from './Components/Details/Detail';
 import RecipePage from './Components/recipePage/RecipePage';
 import MealsCategory from './Components/recipePage/meals/MealsCategory';
 import RecipeDetail from './Components/Details/RecipeDetail';
+import { FavouriteContextProvider } from './Components/context/FavourtieRecipeContext';
+import Favourites from './Components/FavouritePage/Favourites';
 // import Overview from './Components/OverviewPage/Overview';
 function App() {
 
 
   return (
     <>
+    <FavouriteContextProvider>
        <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/details/nutrients" element={<Detail />} />
           <Route path="/recipeDetails" element={<RecipeDetail />} />
           <Route path="/overview" element={<HomePage />} />
-       
+          <Route path="/favourites" element={<Favourites />} />
           <Route path="/recipe" element={<RecipePage />} />
           <Route path="/recipe/mealCategory" element={<MealsCategory />} />
        
         </Routes>
+        </FavouriteContextProvider>
 
     </>
   )

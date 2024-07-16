@@ -28,7 +28,7 @@ const SideBar = () => {
               </Link>
             </li>
             <li className="list">
-              <Link to="/favourite" className="linkButton">
+              <Link to="/favourites" className="linkButton">
                 <CiHeart size={28} />
                 Favourite
               </Link>

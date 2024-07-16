@@ -1,0 +1,78 @@
+/* Favourites.css */
+
+.leftDivs {
+  display: flex;
+  width: 100%;
+}
+
+.firstDiv {
+  width: 20%;
+}
+
+.favourites {
+  width: 80%;
+  background-color: rgb(249, 245, 245);
+}
+
+.headings {
+  margin-left: 2.8rem;
+  margin-top: 3.5rem;
+}
+
+.recipeGrids {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-left:2rem;
+  margin-top: 1rem;
+}
+
+.recipeCard {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.recipeCard:hover {
+  transform: translateY(-5px);
+}
+
+.recipeImg2 {
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.recipeTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+.removeIcon {
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #0a0000;
+  z-index: 5;
+}
+
+.removeIcon:hover {
+  color: #f00;
+}
+
+.clickableArea {
+  cursor: pointer;
+  /* text-align: center; */
+  padding-top: 10px; 
+  transition: 0.3s ease;
+}
+
+.clickableArea:hover {
+  transform: scale(1.08);
+}

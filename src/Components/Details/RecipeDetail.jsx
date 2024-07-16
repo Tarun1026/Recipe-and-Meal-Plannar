@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./RecipeDetail.css";
+import { useFavouriteRecipe } from "../context/FavourtieRecipeContext";
 
 const RecipeDetail = () => {
   const location = useLocation();
-  const { title, image, extendedIngredients, readyInMinutes, nutrients, steps } =
-    location.state || {};
+  const { id, title, image, extendedIngredients, readyInMinutes, nutrients, steps } = location.state || {};
+
+  const { favouriteRecipe, addFavouriteRecipe } = useFavouriteRecipe();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(4);
@@ -33,6 +35,26 @@ const RecipeDetail = () => {
     );
   };
 
+  const handleAddFavourite = () => {
+    const recipe = {
+      id, // Ensure id is used here
+      title,
+      image,
+      extendedIngredients,
+      readyInMinutes,
+      nutrients,
+      steps,
+    };
+
+    const isDuplicate = favouriteRecipe.some((m) => m.id === recipe.id);
+    if (isDuplicate) {
+      alert("This Recipe is already in your Favourite list!");
+      return;
+    }
+    addFavouriteRecipe(recipe);
+    alert("Recipe added to Favourite List");
+  };
+
   return (
     extendedIngredients && (
       <div className="recipeDetail">
@@ -53,7 +75,11 @@ const RecipeDetail = () => {
                   </div>
                 )}
               </div>
-              <div className="addToMeal">Add to meal</div>
+              <div className="addToMeal">
+                <button onClick={handleAddFavourite} className="btnAdd">
+                  Add to Favourites
+                </button>
+              </div>
             </div>
           </div>
           <div>

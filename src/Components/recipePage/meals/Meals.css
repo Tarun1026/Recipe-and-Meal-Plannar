@@ -2,13 +2,22 @@
 body,html{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.leftDivs{
+    display:flex;
+    width:100%;
+}
+.firstDivs{
+    width:20%;
+    /* background-color: rgb(207, 69, 69); */
+}
 .recipeGrid{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    width: 80%;
+    grid-template-columns: repeat(4,1fr);
     gap: 5px;
-    margin-left:2.5rem;
-    
-    margin-top: 4rem;
+  
+    background-color: rgb(249, 245, 245);
+    padding-top: 4rem;
 }
 
 .img{
@@ -27,7 +36,8 @@ body,html{
     width:17vw;
     height:31vh;
     border: none;
-    background-color: white;
+    margin-left: 1rem;
+    background-color: rgb(249, 245, 245);
     transition: transform 0.3s ease;
     text-align: start;
 }
