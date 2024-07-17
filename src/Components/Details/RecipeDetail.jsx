@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import "./RecipeDetail.css";
 import { useFavouriteRecipe } from "../context/FavourtieRecipeContext";
+import { useMealPlan } from "../context/MealPlanContext";
 
 const RecipeDetail = () => {
   const location = useLocation();
   const { id, title, image, extendedIngredients, readyInMinutes, nutrients, steps } = location.state || {};
 
   const { favouriteRecipe, addFavouriteRecipe } = useFavouriteRecipe();
+  const { addToMealPlan } = useMealPlan();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(4);
+  const [showModal, setShowModal] = useState(false);
+  const modalRef = useRef(null);
+
+  const closeModal = () => setShowModal(false);
 
   useEffect(() => {
     const updateItemsToShow = () => {
@@ -25,6 +31,22 @@ const RecipeDetail = () => {
     return () => window.removeEventListener("resize", updateItemsToShow);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+
+    if (showModal) {
+      window.addEventListener("click", handleClickOutside);
+    } else {
+      window.removeEventListener("click", handleClickOutside);
+    }
+
+    return () => window.removeEventListener("click", handleClickOutside);
+  }, [showModal]);
+
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - itemsToShow, 0));
   };
@@ -37,7 +59,7 @@ const RecipeDetail = () => {
 
   const handleAddFavourite = () => {
     const recipe = {
-      id, // Ensure id is used here
+      id,
       title,
       image,
       extendedIngredients,
@@ -55,11 +77,42 @@ const RecipeDetail = () => {
     alert("Recipe added to Favourite List");
   };
 
+  const handleAddToMealPlan = (mealPlan) => {
+    const recipe = {
+      id,
+      title,
+      image,
+      extendedIngredients,
+      readyInMinutes,
+      nutrients,
+      steps,
+    };
+    addToMealPlan(mealPlan, recipe);
+  };
+  const MealModal = ({ onAddToMealPlan }) => {
+    const handleAddToMealPlan = (mealPlan) => {
+      onAddToMealPlan(mealPlan);
+      closeModal();
+    };
+  
+    return (
+      <div className="modal" >
+        <div className="modalContent">
+          <button className="closeModalButton" onClick={closeModal}>×</button>
+          <h2>Meal Plan</h2>
+          <button onClick={() => handleAddToMealPlan('breakfast')}>Add to Breakfast</button>
+          <button onClick={() => handleAddToMealPlan('lunch')}>Add to Lunch</button>
+          <button onClick={() => handleAddToMealPlan('dinner')}>Add to Dinner</button>
+        </div>
+      </div>
+    );
+  };
+  
   return (
     extendedIngredients && (
       <div className="recipeDetail">
         <div className="contentWrapper">
-          <div className="rightDiv">
+          <div className="rightDivs">
             <div className="recipeHeader">
               <h1 className="recipeTitle2">{title}</h1>
             </div>
@@ -79,6 +132,12 @@ const RecipeDetail = () => {
                 <button onClick={handleAddFavourite} className="btnAdd">
                   Add to Favourites
                 </button>
+              </div>
+              <div className="addToMeal" style={{ position: "relative" }}>
+                <button onClick={() => setShowModal(true)} className="btnAdd">
+                  Add to Meal
+                </button>
+                {showModal && <MealModal onAddToMealPlan={handleAddToMealPlan} />}
               </div>
             </div>
           </div>

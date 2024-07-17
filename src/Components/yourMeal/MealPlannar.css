@@ -1,0 +1,95 @@
+.Div {
+    display: flex;
+  }
+  
+  .firstDivs {
+    width: 20%;
+  }
+  
+  .rightDiv {
+    width: 80%;
+    background-color: rgb(249, 245, 245);
+    padding: 2rem;
+  }
+  
+  .headingMeal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .mealTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .dateRange {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .date {
+    font-size: 1.2rem;
+    margin-top: -5px;
+  }
+  
+  .navButton {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .shareButton,
+  .addButton {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .addButton {
+    background-color: #ff9500;
+    margin-left: 0.5rem;
+  }
+  
+  .shareButton:hover,
+  .addButton:hover {
+    opacity: 0.8;
+  }
+  
+  .days {
+    margin-top: 2rem;
+  }
+  
+  .day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.5rem;
+  }
+  
+  .arrow {
+    font-size: 1.2rem;
+    color: #aaa;
+  }
+
+  .contains{
+    width:70%;
+    margin-left: 3rem;
+    margin-top: 1.5rem;
+  }
+  .dayBtn{
+    cursor: pointer;
+    border: none;
+    background-color: rgb(249, 245, 245);
+    font-size: larger;
+  }
+  

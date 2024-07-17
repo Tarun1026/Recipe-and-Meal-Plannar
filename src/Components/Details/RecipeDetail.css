@@ -16,7 +16,7 @@ body, html {
   width: 100%;
 }
 
-.rightDiv {
+.rightDivs {
   margin-left: 4rem;
   
 }
@@ -197,4 +197,33 @@ body, html {
 .ingredientUseHeading {
   margin-top: 1rem;
   font-size: 1.5rem;
+}
+
+
+
+/* Modal styles */
+/* Modal styles */
+.modal {
+  position: absolute;
+  top: 0;
+  left:  calc(20% + 10px);
+  width: 250px;
+  background-color: white;
+  /* padding: 1rem; */
+  /* padding-left: 2rem; */
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.closeModalButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
