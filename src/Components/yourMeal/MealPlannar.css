@@ -1,95 +1,296 @@
 .Div {
-    display: flex;
-  }
-  
-  .firstDivs {
-    width: 20%;
-  }
-  
-  .rightDiv {
-    width: 80%;
-    background-color: rgb(249, 245, 245);
-    padding: 2rem;
-  }
-  
-  .headingMeal {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .mealTitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .dateRange {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .date {
-    font-size: 1.2rem;
-    margin-top: -5px;
-  }
-  
-  .navButton {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  
-  .shareButton,
-  .addButton {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .addButton {
-    background-color: #ff9500;
-    margin-left: 0.5rem;
-  }
-  
-  .shareButton:hover,
-  .addButton:hover {
-    opacity: 0.8;
-  }
-  
-  .days {
-    margin-top: 2rem;
-  }
-  
-  .day {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 1.5rem;
-  }
-  
-  .arrow {
-    font-size: 1.2rem;
-    color: #aaa;
-  }
+  display: flex;
+}
 
-  .contains{
-    width:70%;
-    margin-left: 3rem;
-    margin-top: 1.5rem;
-  }
-  .dayBtn{
-    cursor: pointer;
-    border: none;
-    background-color: rgb(249, 245, 245);
-    font-size: larger;
-  }
-  
+.firstDivs {
+  width: 20%;
+}
+
+.rightDiv {
+  width: 80%;
+  background-color: rgb(249, 245, 245);
+  padding: 2rem;
+}
+
+.headingMeal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mealTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.dateRange {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.date {
+  font-size: 1.2rem;
+  margin-top: -5px;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.shareButton,
+.addButton {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addButton {
+  background-color: #ff9500;
+  margin-left: 0.5rem;
+}
+
+.shareButton:hover,
+.addButton:hover {
+  opacity: 0.8;
+}
+
+.days {
+  margin-top: 2rem;
+}
+
+.day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1.5rem;
+}
+
+.arrow {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+.contains {
+  width: 70%;
+  margin-left: 3rem;
+  margin-top: 1.5rem;
+}
+
+.dayBtn {
+  cursor: pointer;
+  border: none;
+  background-color: rgb(249, 245, 245);
+  font-size: larger;
+}
+
+.mealPlanRecipes {
+  margin-top: 2rem;
+}
+
+.mealPlanRecipeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+}
+
+.mealPlanRecipe {
+  position: relative;
+  text-align: start;
+}
+
+.mealPlanRecipeImage {
+  width: 11rem;
+  height: auto;
+  border-radius: 15px;
+}
+
+.iconDiv {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.iconBtn {
+  border: none;
+  background-color: rgb(253, 250, 250);
+  border-radius: 50%;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.mealPlanRecipeTitle {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  width: 10rem;
+  color: rgb(5, 0, 0);
+}
+
+.modal2 {
+  position: fixed;
+  width: 300px;
+  height: 130px;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 1.5rem;
+}
+
+.closeModalButton {
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.modalContent2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.modalContent2 button {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  color: rgb(0, 0, 8);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.modalContent2 button:hover {
+  color: darkblue;
+}
+
+/* Existing CSS styles remain unchanged */
+
+.dayModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.dayModal {
+  width: 30rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  padding: 1rem;
+  position: relative; /* Added to position close button */
+}
+
+.dayModal .closeModalButton1 {
+  position: absolute; /* Changed to absolute positioning */
+  top: 10px; /* Positioning at the top */
+  right: 10px; /* Positioning at the right */
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.dayModal .modalHeader {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.dayModal .dateRange {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.dayModal .dropdownContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.dayModal .mealDropdown {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border: none; /* Removed border */
+  background-color: transparent; /* Set background to transparent */
+  /* appearance: none;  */
+  cursor: pointer;
+}
+
+.dayModal .days {
+  margin-top: 1rem;
+}
+
+.dayModal .day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 10px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1.5rem;
+}
+
+.dayModal .arrow {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.dayModal .doneButton {
+  width: 100%;
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.dayModal .doneButton:hover {
+  opacity: 0.8;
+}
+
+/* Additional styles to handle checkbox */
+.dayModal .day .arrow input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+

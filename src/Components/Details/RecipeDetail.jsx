@@ -96,17 +96,16 @@ const RecipeDetail = () => {
     };
   
     return (
-      <div className="modal" >
+      <div className="modal">
         <div className="modalContent">
-          <button className="closeModalButton" onClick={closeModal}>×</button>
-          <h2>Meal Plan</h2>
-          <button onClick={() => handleAddToMealPlan('breakfast')}>Add to Breakfast</button>
-          <button onClick={() => handleAddToMealPlan('lunch')}>Add to Lunch</button>
-          <button onClick={() => handleAddToMealPlan('dinner')}>Add to Dinner</button>
+          <button className="closeModalButton" onClick={closeModal}>X</button>
+          <button onClick={() => handleAddToMealPlan()}>Meal Plan</button>
+          <button>Shopping List</button>
         </div>
       </div>
     );
   };
+  
   
   return (
     extendedIngredients && (
