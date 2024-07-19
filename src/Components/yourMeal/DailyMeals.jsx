@@ -19,7 +19,8 @@ const DailyMeals = () => {
             <button className="addButton">+ Add</button>
           </div>
           <div className="days">
-            <div className="day">
+            <div className="day
+            ">
               Breakfast <span className="arrow">{"+"}</span>
             </div>
             <div className="day">

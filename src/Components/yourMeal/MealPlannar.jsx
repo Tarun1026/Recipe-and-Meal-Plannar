@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SideBar from "../SideHomePage/SideBar";
 import "./MealPlannar.css";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
@@ -6,7 +6,8 @@ import { addDays, startOfWeek, format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useMealPlan } from "../context/MealPlanContext";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { IoIosArrowForward,IoIosArrowBack} from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+
 const MealPlannar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const navigate = useNavigate();
@@ -15,6 +16,14 @@ const MealPlannar = () => {
   const { mealPlans } = useMealPlan();
   const [showModal, setShowModal] = useState(null);
   const [dayShowModal, setDayShowModal] = useState(false);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [scheduledMeals, setScheduledMeals] = useState(
+    JSON.parse(localStorage.getItem("scheduledMeals")) || {}
+  );
+
+  useEffect(() => {
+    localStorage.setItem("scheduledMeals", JSON.stringify(scheduledMeals));
+  }, [scheduledMeals]);
 
   const closeModal = () => setShowModal(null);
   const closeDayModal = () => {
@@ -37,52 +46,85 @@ const MealPlannar = () => {
     });
   };
 
-  const handleDaymodal = () => {
+  const handleDaymodal = (recipe) => {
+    setSelectedRecipe(recipe);
     setDayShowModal(true);
     setShowModal(null);
     document.body.style.overflow = "hidden"; // Disable background scrolling when modal is open
   };
 
-  const DayModal = () => (
-    <div className="dayModalOverlay">
-      <div className="dayModal">
-        <button className="closeModalButton1" onClick={closeDayModal}>x</button>
-        <div className="modalHeader">
-          <strong>Current Date</strong>
-        </div>
-        <div className="dateRange">
-          <button className="navButton" onClick={handlePrevWeek}>
-          <IoIosArrowBack />
-          </button>
-          <div className="date">
-            {format(startOfCurrentWeek, "MMM d")} - {format(endOfCurrentWeek, "MMM d")}
+  const handleAssignRecipeToDay = (day, mealType) => {
+    const selectedDate = format(addDays(startOfCurrentWeek, day), "yyyy-MM-dd");
+    setScheduledMeals({
+      ...scheduledMeals,
+      [selectedDate]: {
+        ...scheduledMeals[selectedDate],
+        [mealType]: selectedRecipe,
+      },
+    });
+    closeDayModal();
+  };
+
+  const navigateToRecipeDetail = (recipe) => {
+    navigate("/recipeDetails", { state: recipe });
+  };
+
+  const DayModal = () => {
+    const [modalCurrentDate, setModalCurrentDate] = useState(startOfCurrentWeek);
+    const [selectedMealType, setSelectedMealType] = useState("Breakfast");
+
+    const handlePrevModalWeek = () => {
+      setModalCurrentDate(addDays(modalCurrentDate, -7));
+    };
+
+    const handleNextModalWeek = () => {
+      setModalCurrentDate(addDays(modalCurrentDate, 7));
+    };
+
+    const startOfModalWeek = startOfWeek(modalCurrentDate, { weekStartsOn: 1 });
+    const endOfModalWeek = addDays(startOfModalWeek, 6);
+
+    return (
+      <div className="dayModalOverlay">
+        <div className="dayModal">
+          <button className="closeModalButton1" onClick={closeDayModal}>x</button>
+          <div className="modalHeader">
+            <strong>Current Date</strong>
           </div>
-          <button className="navButton" onClick={handleNextWeek}>
-          <IoIosArrowForward />
-          </button>
-        </div>
-        <div className="dropdownContainer">
-          <select className="mealDropdown">
-            <option>Breakfast</option>
-            <option>Lunch</option>
-            <option>Dinner</option>
-            <option>Snacks</option>
-          </select>
-        </div>
-        <div className="days">
-          {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map((day, index) => (
-            <div className="day" key={day}>
-              {day}
-              <span className="arrow">
-                <input type="checkbox" />
-              </span>
+          <div className="dateRange">
+            <button className="navButton" onClick={handlePrevModalWeek}>
+              <IoIosArrowBack />
+            </button>
+            <div className="date">
+              {format(startOfModalWeek, "MMM d")} - {format(endOfModalWeek, "MMM d")}
             </div>
-          ))}
+            <button className="navButton" onClick={handleNextModalWeek}>
+              <IoIosArrowForward />
+            </button>
+          </div>
+          <div className="dropdownContainer">
+            <select className="mealDropdown" value={selectedMealType} onChange={(e) => setSelectedMealType(e.target.value)}>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Snacks">Snacks</option>
+            </select>
+          </div>
+          <div className="days">
+            {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map((day, index) => (
+              <div className="day" key={day} onClick={() => handleAssignRecipeToDay(index, selectedMealType)}>
+                {day}
+                <span className="arrow">
+                  <input type="checkbox" />
+                </span>
+              </div>
+            ))}
+          </div>
+          <button onClick={closeDayModal} className="doneButton">Done</button>
         </div>
-        <button onClick={closeDayModal} className="doneButton">Done</button>
       </div>
-    </div>
-  );
+    );
+  };
 
   const AddModal = ({ position }) => {
     const handleClose = () => {
@@ -101,11 +143,32 @@ const MealPlannar = () => {
           X
         </button>
         <div className="modalContent2">
-          <button onClick={handleDaymodal}>Choose Day</button>
+          <button onClick={() => handleDaymodal(showModal.recipe)}>Choose Day</button>
           <button>Remove from unscheduled</button>
         </div>
       </div>
     );
+  };
+
+  const renderScheduledMeals = (dayIndex) => {
+    const selectedDate = format(addDays(startOfCurrentWeek, dayIndex), "yyyy-MM-dd");
+    const meals = scheduledMeals[selectedDate];
+    if (!meals) return null;
+
+    return Object.entries(meals).map(([mealType, recipe]) => (
+      <div key={mealType} className="scheduledMeal">
+        <div className="scheduledImageDiv" onClick={() => navigateToRecipeDetail(recipe)}>
+          <div className="iconDivs">
+            <button className="iconButton">
+              <HiOutlineDotsHorizontal size={20} className="icon" />
+            </button>
+            <img src={recipe.image} className="scheduledImage" alt={recipe.title} />
+          </div>
+        </div>
+        <div onClick={() => navigateToRecipeDetail(recipe)}>{recipe.title}</div>
+        <div className="mealType">{mealType}</div>
+      </div>
+    ));
   };
 
   return (
@@ -144,7 +207,7 @@ const MealPlannar = () => {
                           className="iconBtn"
                           onClick={(e) => {
                             const rect = e.currentTarget.getBoundingClientRect();
-                            setShowModal({ x: rect.left, y: rect.bottom, id: recipe.id });
+                            setShowModal({ x: rect.left, y: rect.bottom, id: recipe.id, recipe });
                           }}
                         >
                           <HiOutlineDotsHorizontal size={20} className="icon" />
@@ -153,8 +216,15 @@ const MealPlannar = () => {
                           <AddModal position={showModal} />
                         )}
                       </div>
-                      <img src={recipe.image} alt={recipe.title} className="mealPlanRecipeImage" />
-                      <div className="mealPlanRecipeTitle">{recipe.title}</div>
+                      <img
+                        src={recipe.image}
+                        alt={recipe.title}
+                        className="mealPlanRecipeImage"
+                        onClick={() => navigateToRecipeDetail(recipe)}
+                      />
+                      <div className="mealPlanRecipeTitle" onClick={() => navigateToRecipeDetail(recipe)}>
+                        {recipe.title}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -164,13 +234,9 @@ const MealPlannar = () => {
           {dayShowModal && <DayModal />}
           <div className="days">
             {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map((day, index) => (
-              <div className="day" key={day}>
-                {day}
-                <span className="arrow">
-                  <button onClick={() => handleClick(index)} className="dayBtn">
-                    {">"}
-                  </button>
-                </span>
+              <div key={day} className="day" onClick={() => handleClick(index)}>
+                <div className="dayName">{day}</div>
+                {renderScheduledMeals(index)}
               </div>
             ))}
           </div>
