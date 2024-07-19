@@ -34,8 +34,22 @@ export const MealPlanProvider = ({ children }) => {
     });
   };
 
+  // Remove a recipe from the meal plan
+  const removeMealPlan = (recipeId) => {
+    setMealPlans((prevMealPlans) => {
+      const updatedMealPlans = { ...prevMealPlans };
+      Object.keys(updatedMealPlans).forEach((mealType) => {
+        updatedMealPlans[mealType] = updatedMealPlans[mealType].filter((recipe) => recipe.id !== recipeId);
+        if (updatedMealPlans[mealType].length === 0) {
+          delete updatedMealPlans[mealType];
+        }
+      });
+      return updatedMealPlans;
+    });
+  };
+
   return (
-    <MealPlanContext.Provider value={{ mealPlans, addToMealPlan }}>
+    <MealPlanContext.Provider value={{ mealPlans, addToMealPlan, removeMealPlan }}>
       {children}
     </MealPlanContext.Provider>
   );
