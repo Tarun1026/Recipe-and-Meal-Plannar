@@ -79,13 +79,17 @@ body, html {
   margin-left:-5px;
   font-weight: 700;
 }
-
+.containerIngdAndNutrition{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .ingredientsList {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
   margin-left: 4rem;
-  width: 100%;
+  width: 50%;
 }
 
 .ingredient {
@@ -108,14 +112,22 @@ body, html {
 .ingredientNameUp{
   font-size: 1.3rem;
 }
+.unitAndPercentage{
+  display: flex;
+}
+.percentage{
+  margin-left:10px;
+}
 .nutritionCharts {
   margin-top: 2rem;
-  margin-left: 2rem;
-  width: 100%;
+  margin-right: 2rem;
+  width: 26%;
   background-color: white;
   border-radius: 0%;
 }
-
+.nutritionHeading{
+  text-align: center;
+}
 .sliderContainer {
   display: flex;
   align-items: center;
@@ -130,15 +142,18 @@ body, html {
 }
 
 .nutritionDetails {
-  display: flex;
+  /* display: flex; */
   overflow: hidden;
   white-space: nowrap;
-  margin: 0 1rem;
+  /* margin: 0 1rem; */
+  width: 100%;
 }
 
 .nutritionItem {
-  flex: 0 0 auto;
-  margin-right: 1rem;
+  display: flex;
+  /* width: 100%; */
+  justify-content: space-between;
+  /* margin-right: 2rem; */
 }
 
 .nutritionCircle {
@@ -159,6 +174,8 @@ body, html {
 
 .nutritionAmount {
   font-size: 1rem;
+  display: flex;
+  /* justify-content: space-between; */
 }
 
 .highlighted .nutritionCircle {
@@ -176,6 +193,7 @@ body, html {
 }
 
 .ingredientList {
+  
   list-style-type: none;
   padding: 0;
 }

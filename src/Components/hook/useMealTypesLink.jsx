@@ -17,7 +17,7 @@ const useMealTypesLink = (dynamicUrl) => {
         }
         const requests = recipesId.map((id) =>
           axios.get(
-            `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=3893e16be0794162926167deccfa31eb
+            `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=838552739901431c81a42861f27be0b2
 
 `
           )

@@ -11,7 +11,7 @@ const RecipeLink = ({ query }) => {
         let url = "";
         let recipeIds = [];
         if (query) {
-          url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=3893e16be0794162926167deccfa31eb
+          url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=838552739901431c81a42861f27be0b2
 
 
 `;
@@ -22,7 +22,7 @@ const RecipeLink = ({ query }) => {
         }
 
         const requests = recipeIds.map((id) =>
-          axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=3893e16be0794162926167deccfa31eb
+          axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=838552739901431c81a42861f27be0b2
 
 
 `)

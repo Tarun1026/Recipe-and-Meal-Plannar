@@ -16,7 +16,7 @@ const MealPlannar = () => {
   const { mealPlans, addToMealPlan, removeMealPlan, setMealPlans } = useMealPlan();
   const [showModal, setShowModal] = useState(null);
   const [dayShowModal, setDayShowModal] = useState(false);
-  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [selectedRecipe, setSelectedRecipe] = useState({});
   const [scheduledMeals, setScheduledMeals] = useState(
     JSON.parse(localStorage.getItem("scheduledMeals")) || {}
   );
@@ -44,27 +44,30 @@ const MealPlannar = () => {
     navigate("/meal/day", {
       state: {
         day: format(selectedDate, "EEEE"),
-        date: format(selectedDate, "MMM d"),
+        date: format(selectedDate, "yyyy-MM-dd"),
+        scheduledMeals, // <--- Add this prop
       },
     });
   };
 
-  const handleDaymodal = (recipe) => {
+  const handleDayModal = (recipe) => {
     setSelectedRecipe(recipe);
     setDayShowModal(true);
     setShowModal(null);
     document.body.style.overflow = "hidden"; // Disable background scrolling when modal is open
   };
-
-  const handleAssignRecipeToDay = (day, mealType) => {
-    const selectedDate = format(addDays(startOfCurrentWeek, day), "yyyy-MM-dd");
+  const handleAssignRecipeToDay = (startOfModalWeek, day, mealType) => {
+    const selectedDate = format(addDays(startOfModalWeek, day), "yyyy-MM-dd");
+    const selectedRecipe2 = {...selectedRecipe }; // Create a new object from the existing one
+  
     setScheduledMeals({
-      ...scheduledMeals,
+     ...scheduledMeals,
       [selectedDate]: {
-        ...scheduledMeals[selectedDate],
-        [mealType]: selectedRecipe,
+       ...scheduledMeals[selectedDate],
+        [mealType]: selectedRecipe2,
       },
     });
+    console.log("Scheduled Meals:", scheduledMeals);
     closeDayModal();
   };
 
@@ -73,6 +76,7 @@ const MealPlannar = () => {
   };
 
   const DayModal = () => {
+   
     const [modalCurrentDate, setModalCurrentDate] =
       useState(startOfCurrentWeek);
     const [selectedMealType, setSelectedMealType] = useState("Breakfast");
@@ -101,7 +105,7 @@ const MealPlannar = () => {
             <button className="navButton" onClick={handlePrevModalWeek}>
               <IoIosArrowBack />
             </button>
-            <div className="date">
+            <div className="date1">
               {format(startOfModalWeek, "MMM d")} -{" "}
               {format(endOfModalWeek, "MMM d")}
             </div>
@@ -134,7 +138,7 @@ const MealPlannar = () => {
               <div
                 className="day"
                 key={day}
-                onClick={() => handleAssignRecipeToDay(index, selectedMealType)}
+                onClick={() => handleAssignRecipeToDay(startOfModalWeek, index, selectedMealType)}
               >
                 {day}
                 <span className="arrow">
@@ -165,8 +169,6 @@ const MealPlannar = () => {
         alert("Removed Successfully")
         return updatedMealPlans;
       });
-      // 
-      // closeModal();
     };
   
     return (
@@ -181,7 +183,7 @@ const MealPlannar = () => {
           X
         </button>
         <div className="modalContent2">
-          <button onClick={() => handleDaymodal(recipe)}>Choose Day</button>
+          <button onClick={() => handleDayModal(recipe)}>Choose Day</button>
           <button onClick={handleRemoveRecipe}>Remove from unscheduled</button>
         </div>
       </div>
@@ -189,13 +191,10 @@ const MealPlannar = () => {
   };
   
   const renderScheduledMeals = (dayIndex) => {
-    const selectedDate = format(
-      addDays(startOfCurrentWeek, dayIndex),
-      "yyyy-MM-dd"
-    );
+    const selectedDate = format(addDays(startOfCurrentWeek, dayIndex), "yyyy-MM-dd");
     const meals = scheduledMeals[selectedDate];
     if (!meals) return null;
-
+  
     return Object.entries(meals).map(([mealType, recipe]) => (
       <div key={mealType} className="scheduledMeal">
         <div
@@ -203,19 +202,9 @@ const MealPlannar = () => {
           onClick={() => navigateToRecipeDetail(recipe)}
         >
           <div className="iconDivs">
-            <button
-              className="iconBtns"
-              // onClick={(e) => {
-              //   const rect = e.currentTarget.getBoundingClientRect();
-              //   setShowModal({ x: rect.left, y: rect.bottom, id: recipe.id, recipe });
-              // }}
-            >
+            <button className="iconBtns">
               <HiOutlineDotsHorizontal size={20} className="icon" />
             </button>
-            {/* {showModal && showModal.id === recipe.id && (
-                          <AddModal position={showModal} />
-                        )} */}
-            
           </div>
           <img src={recipe.image} className="scheduledImage" />
         </div>
@@ -274,12 +263,12 @@ const MealPlannar = () => {
                           <HiOutlineDotsHorizontal size={20} className="icon" />
                         </button>
                         {showModal && showModal.id === recipe.id && (
-                        <AddModal
-                        position={showModal}
-                        recipeId={recipe.id}
-                        recipe={recipe}
-                        setMealPlans={setMealPlans}
-                      />
+                          <AddModal
+                            position={showModal}
+                            recipeId={recipe.id}
+                            recipe={recipe}
+                            setMealPlans={setMealPlans}
+                          />
                         )}
                       </div>
                       <img
