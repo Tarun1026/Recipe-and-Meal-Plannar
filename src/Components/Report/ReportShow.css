@@ -43,8 +43,32 @@
     color: inherit;
     padding: 0;
     margin: 0;
+    margin-left: -5px;
+    margin-top: 5px;
     outline: none;
     cursor: pointer;
+  }
+  .charts{
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(145, 144, 144);
+    /* width: 55px; */
+    cursor: pointer;
+    margin-left: 5px;
+    -webkit-appearance: none;   
+  -moz-appearance: none;    
+  appearance: none;   
+  }
+  .charts:focus{
+    color: rgb(31, 74, 134);
+    outline: none;
+    
+  }
+  .charts:hover{
+    color: rgb(31, 74, 134);
+    outline: none;
+    
   }
   
   .circle {

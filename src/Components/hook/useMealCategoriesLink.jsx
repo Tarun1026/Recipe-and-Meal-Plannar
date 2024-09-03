@@ -14,11 +14,11 @@ const useMealCategoriesLink = () => {
     //     console.log("dynamic", res.data.results);
     //     setMeal(res.data.results || []);  
     //   } else {
-        url = "http://localhost:3001/mealCategories";
+        url = "https://tarun1026.github.io/RecipeAPI/db.json";
         // console.log("localu", url);
         const res = await axios.get(url);
         // console.log("local", res.data);
-        setMeal(res.data);
+        setMeal(res.data.mealCategories);
     //   }
     };
     fetchMealsCategoriesData();

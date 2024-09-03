@@ -1,9 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ReportShow.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { IoMdNotifications } from "react-icons/io";
 
 const ReportShow = () => {
+  const[reportType,setReportType]=useState("week")
+  const handleReportChange=(e)=>{
+    setReportType(e.target.value)
+  }
+  const getDateOptions = () => {
+    if (reportType === "day") {
+      return (
+        <>
+          <option>November 13</option>
+          <option>November 12</option>
+          <option>November 11</option>
+          {/* Add more day-wise options */}
+        </>
+      );
+    } else if (reportType === "week") {
+      return (
+        <>
+          <option>From 7-13 November</option>
+          <option>From 1-7 November</option>
+          <option>From 25-31 October</option>
+          {/* Add more week-wise options */}
+        </>
+      );
+    } else if (reportType === "month") {
+      return (
+        <>
+          <option>November 2023</option>
+          <option>October 2023</option>
+          <option>September 2023</option>
+          {/* Add more month-wise options */}
+        </>
+      );
+    }
+  };
+
   return (
     <>
       <div className="main">
@@ -12,11 +47,20 @@ const ReportShow = () => {
         </div>
         <div className="reportWeek">
           <div className="report">Report</div>
-          <div className="week">on this week</div>
+          <div className="week">on this 
+            <select className="charts" value={reportType} onChange={handleReportChange}>
+              <option>
+                week
+              </option>
+              <option>day</option>
+              <option>month</option>
+            </select>
+          </div>
         </div>
         <div className="date">
           <select className="dropdown">
-            <option>From 7-13 November</option>
+            {/* <option>From 7-13 November</option> */}
+            {getDateOptions()}
           </select>
         </div>
         <div className="circle-container">

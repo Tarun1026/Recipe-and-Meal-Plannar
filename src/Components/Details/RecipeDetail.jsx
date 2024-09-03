@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./RecipeDetail.css";
 import { useFavouriteRecipe } from "../context/FavourtieRecipeContext";
 import { useMealPlan } from "../context/MealPlanContext";
-
+import { FaPlus } from "react-icons/fa";
 const RecipeDetail = () => {
   const location = useLocation();
   const {
@@ -25,7 +25,17 @@ const RecipeDetail = () => {
   const modalRef = useRef(null);
 
   const closeModal = () => setShowModal(false);
-
+  const [showNutrientModal, setNutrientModal] = useState(false);
+  // const onModal = () => {
+  //   setNutrientModal(true);
+  //   document.body.classList.add("modalOpen"); // Prevent background scroll
+  // };
+  
+  const closeNutrientModal = () => {
+    setNutrientModal(false);
+    document.body.style.overflow="auto";
+  };
+  
   const handleAddFavourite = () => {
     const recipe = {
       id,
@@ -72,12 +82,45 @@ const RecipeDetail = () => {
             X
           </button>
           <button onClick={() => handleAddToMealPlan()}>Meal Plan</button>
+          <button onClick={handleAddFavourite} className="btnAdd">
+                 Favourites
+                </button>
           <button>Shopping List</button>
         </div>
       </div>
     );
   };
-
+  const onModal = () => {
+    setNutrientModal(true);
+    document.body.style.overflow="hidden";
+  };
+  const NutrientModal = () => (
+    <div className="modalOverlay">
+      <div className="modalCentered">
+        <button onClick={closeNutrientModal} className="closeModalButton">
+          X
+        </button>
+        <div className="nutrientsInfo">Nutrition Information</div>
+        <div>
+          {nutrients.map((nutrient, index) => (
+            <div key={index} className="nutritionItem">
+              <div className="nutritionName">{nutrient.name}</div>
+              <div className="nutritionAmount">
+                <div>{nutrient.amount}</div>
+                <div className="unitAndPercentage">
+                  <div>{nutrient.unit}</div>
+                  <div className="percentage">
+                    {`(${nutrient.percentOfDailyNeeds}%)`}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+  
   // Filter the nutrients to show only calories, carbohydrates, fats, and proteins
   const filteredNutrients = nutrients.filter((nutrient) =>
     ["Calories", "Carbohydrates", "Fat", "Protein"].includes(nutrient.name)
@@ -102,13 +145,13 @@ const RecipeDetail = () => {
                 )}
               </div>
               <div className="addToMeal">
-                <button onClick={handleAddFavourite} className="btnAdd">
-                  Add to Favourites
-                </button>
+                
               </div>
               <div className="addToMeal" style={{ position: "relative" }}>
-                <button onClick={() => setShowModal(true)} className="btnAdd">
-                  Add to Meal
+               <div><FaPlus className="iconPlus"/>
+               </div>
+                <button onClick={() => setShowModal(true)} className="btnAdd2">
+                  Add to 
                 </button>
                 {showModal && (
                   <MealModal onAddToMealPlan={handleAddToMealPlan} />
@@ -135,21 +178,29 @@ const RecipeDetail = () => {
             ))}
           </div>
           <div className="nutritionCharts">
-            <h2 className="nutritionHeading">Nutrition Information</h2>
+            <div className="caloricBreakdown">Caloric Breakdown</div>
+            <h2 className="nutritionHeading">Nutrition Per Serving</h2>
             <div className="sliderContainer">
               <div className="nutritionDetails">
                 {filteredNutrients.map((nutrient, index) => (
                   <div key={index} className="nutritionItem">
-                    <div className="nutritionName">{nutrient.name}</div>
-                    <div className="nutritionAmount">
-                      <div>{nutrient.amount}</div>
+                    <div className="nutritionName">{nutrient.name}
+                     <div className="nutritionAmount">
+                      
                       <div className="unitAndPercentage">
-                        <div>{nutrient.unit}</div>
+                        <div className="amount">{nutrient.amount}</div>
+                        <div className="unit">{nutrient.unit}</div>
                         <div className="percentage">{`(${nutrient.percentOfDailyNeeds}%)`}</div>
                       </div>
-                    </div>
+                     </div>
+                     </div>
                   </div>
                 ))}
+<div className="dailyPercent">% Percent of daily needs</div>
+                <div className="viewAllNutreints">
+                  <button onClick={onModal} className="btnViewAllNutreints">View All Nutrients</button>
+                </div>
+                {showNutrientModal && <NutrientModal />}
               </div>
             </div>
           </div>
